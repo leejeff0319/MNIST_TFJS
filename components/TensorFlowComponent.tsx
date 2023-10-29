@@ -58,7 +58,7 @@ const TensorFlowComponent: React.FC<TensorFlowComponentProps> = ({ imageData }) 
             <h1 className='text-4xl'>Results</h1>
             {predictions && (
                 <div>
-                    <div style={{ width: '100%', height: '300px' }}>
+                    <div style={{ width: '100%', height: '400px' }}>
                         <Bar
                             data={{
                                 labels: predictions.map((_, index) => ` ${index}`),
@@ -66,57 +66,63 @@ const TensorFlowComponent: React.FC<TensorFlowComponentProps> = ({ imageData }) 
                                     {
                                         label: 'Predictions',
                                         data: predictions,
-                                        backgroundColor: 'rgba(75,192,192,0.4)',
-                                        borderColor: 'rgba(75,192,192,1)',
+                                        backgroundColor: 'rgba(0, 188, 212,  0.4)',
+                                        borderColor: 'rgba(0, 188, 212, 1)',
                                         borderWidth: 1,
-                                        hoverBackgroundColor: 'rgba(75,192,192,0.6)',
-                                        hoverBorderColor: 'rgba(75,192,192,1)',
+                                        hoverBackgroundColor: 'rgba(0, 188, 212, 0.6)',
+                                        hoverBorderColor: 'rgba(0, 188, 212, 1)',
                                     }
                                 ]
                             }}
-                            width={100}
-                            height={50}
+                            width={500}
+                            height={300}
                             options={{
                                 maintainAspectRatio: true,
                                 scales: {
                                     y: {
-                                        beginAtZero: true
+                                        beginAtZero: true,
+                                        grid: {
+                                            display: true,
+                                            color: 'rgba(255, 255, 255, 0.2)'
+                                        }
+                                    },
+                                    x: {
+                                        grid: {
+                                            display: false  // Hide the x-axis grid lines
+                                        }
                                     }
                                 }
                             }}
                         />
-                        <div className='flex-col' style={{ fontSize: '2rem' }}>
-                            <h4 className="mb-6">Predictions:</h4>
-                            <div className="flex justify-between space-x-10">
+                    </div>
+                    <div className='flex-col' style={{ fontSize: '2rem' }}>
+                        <h4 className="mb-2">Predictions:</h4>
+                        <div className="flex">
 
-                                {/* First column */}
-                                <div>
-                                    {predictions.slice(0, 5).map((pred, index) => (
-                                        <div key={index} style={{ fontSize: '1.25rem', marginRight:'2em' ,marginBottom: '1rem' }}>
-                                            <strong>{index}: </strong> {pred.toFixed(4)}
-                                        </div>
-                                    ))}
-                                </div>
+                            {/* First column */}
+                            <div>
+                                {predictions.slice(0, 5).map((pred, index) => (
+                                    <div key={index} style={{ fontSize: '1.25rem', marginRight:'5em', marginBottom: '0.5rem' }}>
+                                        <strong>{index}: </strong> {pred.toFixed(4)}
+                                    </div>
+                                ))}
+                            </div>
 
-                                {/* Second column */}
-                                <div>
-                                    {predictions.slice(5, 10).map((pred, index) => (
-                                        <div key={index + 5} style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>
-                                            <strong>{index + 5}: </strong> {pred.toFixed(4)}
-                                        </div>
-                                    ))}
-                                </div>
+                            {/* Second column */}
+                            <div>
+                                {predictions.slice(5, 10).map((pred, index) => (
+                                    <div key={index + 5} style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+                                        <strong>{index + 5}: </strong> {pred.toFixed(4)}
+                                    </div>
+                                ))}
                             </div>
                         </div>
-
-
-
                     </div>
+
                 </div>
             )}
         </div>
     );
 };
-
 
 export default TensorFlowComponent;

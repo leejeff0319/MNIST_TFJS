@@ -5,6 +5,7 @@
 body{
     background-color: #181a1b;
     color: white;
+    overflow: hidden;
 }
 
 .erase-button{

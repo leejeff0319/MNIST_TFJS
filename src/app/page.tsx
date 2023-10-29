@@ -26,17 +26,17 @@ class HomePage extends Component<{}, State> {
   render() {
     return (
       <main className=" h-screen flex flex-col items-center w-screen">
-        <div className='text-4xl text-center text-white mb-10 mt-10'>
+        <div className='text-4xl text-center text-white mb-5 mt-5'>
           <h1>MNIST Digit Recognition using TensorflowJS</h1>
-          <div style={{background:'#2C2F31'}} className='flex justify-center mt-5 p-4 w-screen'>
-            <Image src='/MNIST_image.png' width={750} height={750} alt="image of MNIST dataset" />
+          <div style={{background:'#2C2F31'}} className='flex justify-center mt-3 p-4 w-screen'>
+            <Image src='/MNIST_image.png' width={700} height={700} alt="image of MNIST dataset" />
           </div>
         </div>
 
         <div className="flex justify-center space-x-20 w-full px-20">
           {/* Drawing Canvas Column */}
-          <div className="flex-1">
-            <h3 className="mx-4 text-4xl mb-4">Try writing a number!</h3>
+          <div className="w-2/5">
+            <h3 className="mx-4 text-4xl mb-2">Try writing a number!</h3>
             <div className='flex justify-center'>
               <DrawableCanvas onNewImage={this.handleNewImage} />
             </div>
@@ -44,7 +44,7 @@ class HomePage extends Component<{}, State> {
           </div>
 
           {/* TensorFlow Prediction Column */}
-          <div className="flex-1">
+          <div className="w-3/5">
             <TensorFlowComponent imageData={this.state.imageData} />
           </div>
         </div>
