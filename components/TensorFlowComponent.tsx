@@ -85,26 +85,31 @@ const TensorFlowComponent: React.FC<TensorFlowComponentProps> = ({ imageData }) 
                                 }
                             }}
                         />
-                        <div className= 'flex-col text-3xl'>
-                            <h4>Predictions:</h4>
-                            <div className="flex justify-between text-2xl">
-                                <ul>
-                                    {predictions.slice(0, 5).map((pred, index) => (
-                                        <li key={index}>
-                                            <strong>{index}: </strong> {pred.toFixed(4)}
-                                        </li>
-                                    ))}
-                                </ul>
+                        <div className='flex-col' style={{ fontSize: '2rem' }}>
+                            <h4 className="mb-6">Predictions:</h4>
+                            <div className="flex justify-between space-x-10">
 
-                                <ul>
-                                    {predictions.slice(5, 10).map((pred, index) => (
-                                        <li key={index + 5}>
-                                            <strong>{index + 5}: </strong> {pred.toFixed(4)}
-                                        </li>
+                                {/* First column */}
+                                <div>
+                                    {predictions.slice(0, 5).map((pred, index) => (
+                                        <div key={index} style={{ fontSize: '1.25rem', marginRight:'2em' ,marginBottom: '1rem' }}>
+                                            <strong>{index}: </strong> {pred.toFixed(4)}
+                                        </div>
                                     ))}
-                                </ul>
+                                </div>
+
+                                {/* Second column */}
+                                <div>
+                                    {predictions.slice(5, 10).map((pred, index) => (
+                                        <div key={index + 5} style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>
+                                            <strong>{index + 5}: </strong> {pred.toFixed(4)}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
+
+
 
                     </div>
                 </div>
