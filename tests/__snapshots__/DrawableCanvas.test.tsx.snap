@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrawableCanvas DrawbableCanvas renders correctly 1`] = `
+<div>
+  <div>
+    <canvas
+      data-testid="drawable-canvas"
+      height="300"
+      width="300"
+    />
+    <button
+      class="erase-button"
+    >
+      Erase
+    </button>
+  </div>
+</div>
+`;

@@ -79,7 +79,7 @@ const DrawableCanvas: React.FC<DrawableCanvasProps> = ({ onNewImage }) => {
 
   return (
     <div>
-      <canvas
+      <canvas data-testid="drawable-canvas" 
         ref={canvasRef}
         width={300}
         height={300}

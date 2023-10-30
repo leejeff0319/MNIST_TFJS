@@ -54,7 +54,7 @@ const TensorFlowComponent: React.FC<TensorFlowComponentProps> = ({ imageData }) 
 
 
     return (
-        <div>
+        <div data-testid='tensorflow-component'>
             <h1 className='text-4xl'>Results</h1>
             {predictions && (
                 <div>
